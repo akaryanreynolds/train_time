@@ -2,19 +2,93 @@
 <html>
 <head>
 
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
- 
-    <title></title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- jQurey -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- JavaScript -->
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+
+
+    <title>Train Time Schedules</title>
 
 </head>
 <body>
-	<div id="container">
+	<div id="pageContainer">
+
+		<div class="jumbotron">
+			<h1>Hyperloop Train Schedules</h1>
+			<p id="p1">Vaccum Sealing Humans for Transportation Since 2018</p>
+
+			<div id="photoFrameDiv">
+				<img id="photo" src="assets/images/hyperloop.jpg" alt="hyperloop-train">
+			</div>
+		</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Current Train Schedule</h3>
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr>
+						<th>Train Name</th>
+						<th>Destination</th>
+						<th>Frequancy (min)</th>
+						<th>Next Arrival</th>
+						<th>Minutes Away</th>
+					</tr>
+				</table>
+				<hr>
+			<!-- all the data from Fire base will be goin in here -->
+			<div id="userData"></div>
+			</div>
+		</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Add Train</h3>
+			</div>
+			<div class="panel-body">
+
+
+				<label for="basic-url">Train Name</label>
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1"></span>
+					<input type="text" class="form-control" placeholder="Type HERE" aria-describedby="basic-addon1">
+				</div>
+				<br>
+				<label for="basic-url">Destination</label>
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1"></span>
+					<input type="text" class="form-control" placeholder="Type HERE" aria-describedby="basic-addon1">
+				</div>
+				<br>
+				<label for="basic-url">First Train Time (HH:mm - military time)</label>
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1"></span>
+					<input type="text" class="form-control" placeholder="Type HERE" aria-describedby="basic-addon1">
+				</div>
+				<br>
+				<label for="basic-url">Frequency (min)</label>
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1"></span>
+					<input type="text" class="form-control" placeholder="Type HERE" aria-describedby="basic-addon1">
+				</div>
+				<br>
+				<p><a class="btn btn-primary btn-lg" href="#" role="button">Submit</a></p>
+
+			</div>
+		</div>
+
 		
 	</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="assets/javascript/app.js"></script>
-
 </body>
 </html>
