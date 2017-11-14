@@ -13,15 +13,19 @@ h1, #p1{
 }
 
 #photo{
-	width: 50%;
-	height: 50%;
+	width: 25%;
+	height: 25%;
 }
 
-table{
+table, #userData{
 	width: 100%;
 }
 
 th{
 	font-weight: bold;
 	margin-right: 30px;
+}
+
+input{
+	width: 100%;
 }
