@@ -13,6 +13,8 @@
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
 	<!-- Firebase -->
 	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+	<!-- Monment JS library -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 
 	<title>Train Time Schedules</title>
@@ -23,7 +25,7 @@
 
 		<div class="jumbotron">
 			<h1>Hyperloop Train Schedules</h1>
-			<p id="p1">Vaccum Sealing Humans for Transportation Since 2018</p>
+			<p id="p1">Vacuum Sealing Humans for Transportation Since 2018</p>
 
 			<div id="photoFrameDiv">
 				<img id="photo" src="assets/images/hyperloop.jpg" alt="hyperloop-train">
@@ -69,12 +71,12 @@
 				<br>
 				<label for="first-train-time">First Train Time (HH : mm : am/pm)</label>
 				<div class="form-group">
-					<input type="time" class="form-control" id="time">
+					<input type="time" class="form-control" id="firstTime">
 				</div>
 				<br>
 				<label for="train-frequency">Frequency (min)</label>
 				<div class="form-group">
-					<input type="number" class="form-control" id="feq" placeholder="Minutes"> 
+					<input type="number" class="form-control" id="freq" placeholder="Minutes"> 
 				</div>
 				<br>
 				<p><a class="btn btn-primary btn-lg" id="addNewTrain"href="#" role="button">Submit</a></p>
