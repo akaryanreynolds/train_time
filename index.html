@@ -2,19 +2,89 @@
 <html>
 <head>
 
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
- 
-    <title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- jQurey -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- JavaScript -->
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+	<!-- Monment JS library -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+	<title>Train Time Schedules</title>
 
 </head>
 <body>
-	<div id="container">
-		
-	</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="assets/javascript/app.js"></script>
+	<div id="pageContainer">
 
+		<div class="jumbotron">
+			<h1>Hyperloop Train Schedules</h1>
+			<p id="p1">Vacuum Sealing Humans for Transportation Since 2018</p>
+
+			<div id="photoFrameDiv">
+				<img id="photo" src="assets/images/hyperloop.jpg" alt="hyperloop-train">
+			</div>
+		</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Current Train Schedule</h3>
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr>
+						<th>Train Name</th>
+						<th>Destination</th>
+						<th>Frequency (min)</th>
+						<th>Next Arrival</th>
+						<th>Minutes Away</th>
+					</tr>
+				</table>
+				<hr>
+				<!-- all the data from Fire base will be goin in here -->
+				<div id="userData"></div>
+			</div>
+		</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Add Train</h3>
+			</div>
+			<div class="panel-body">
+				<label for="train-name">Train Name</label>
+				<div class="form-group">
+					<input type="text" class="form-control" id="trainName" placeholder="Type HERE">
+				</div>
+				<br>
+				<label for="train-destination">Destination</label>
+				<div class="form-group">
+					<input type="text" class="form-control" id="dest" placeholder="Type HERE">
+				</div>
+				<br>
+				<label for="first-train-time">First Train Time (HH : mm : am/pm)</label>
+				<div class="form-group">
+					<input type="time" class="form-control" id="firstTime">
+				</div>
+				<br>
+				<label for="train-frequency">Frequency (min)</label>
+				<div class="form-group">
+					<input type="number" class="form-control" id="freq" placeholder="Minutes"> 
+				</div>
+				<br>
+				<p><a class="btn btn-primary btn-lg" id="addNewTrain"href="#" role="button">Submit</a></p>
+
+			</div>
+		</div>
+
+
+</div>
 </body>
 </html>
