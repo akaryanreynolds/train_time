@@ -49,7 +49,7 @@ $("#addNewTrain").on("click", function(event) {
     console.log(childSnapshot.val().First_Time);
     console.log(childSnapshot.val().Frequency);
 
-    $("#userData").append("<div> <span> " + childSnapshot.val().Train_Name + " </span> <span> " + childSnapshot.val().Destination + " </span> <span> " + childSnapshot.val().Frequency + " </span> <span> " + localStorage.getItem("next_train") + " </span> <span> " + localStorage.getItem("min_away") + " </span></div>");
+    $("#userData").append("<tr><td> " + childSnapshot.val().Train_Name + " </td><td> " + childSnapshot.val().Destination + " </td><td>Every " + childSnapshot.val().Frequency + " minutes</td><td>Arriving Next @ " + localStorage.getItem("next_train") + " </td><td> " + localStorage.getItem("min_away") + " minutes before next departure</td></tr>");
 
 
   }, function(errorObject) {
@@ -94,11 +94,9 @@ $("#addNewTrain").on("click", function(event) {
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
     localStorage.clear();
-    localStorage.setItem("next_train", nextTrain);
+    localStorage.setItem("next_train", moment(nextTrain).format("hh:mm"));
     localStorage.setItem("min_away", tMinutesTillTrain);
+  
 }
-
-
-
 
 });
