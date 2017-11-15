@@ -29,18 +29,25 @@ $("#addNewTrain").on("click", function(event) {
   firstTime = $("#firstTime").val().trim();
   minutesAway();
 
-  var newTrain = {
-    Train_Name: trainName,
-    Destination: dest,
-    Frequency: freq,
-    First_Time: firstTime,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
-  }
-
-  database.ref().push(newTrain);
-
   reset();
-});
+  });
+
+  // var newTrain = {
+  //   Train_Name: trainName,
+  //   Destination: dest,
+  //   Frequency: freq,
+  //   First_Time: firstTime,
+  //   dateAdded: firebase.database.ServerValue.TIMESTAMP
+  // }
+
+  // database.ref().push(newTrain);
+  // database.ref().push({
+  //     next_train: nt,
+  //     min_away: tMinutesTillTrain
+  //   });
+
+  // reset();
+
 
   database.ref().on("child_added", function(childSnapshot) {
 
@@ -49,7 +56,7 @@ $("#addNewTrain").on("click", function(event) {
     console.log(childSnapshot.val().First_Time);
     console.log(childSnapshot.val().Frequency);
 
-    $("#userData").append("<tr><td> " + childSnapshot.val().Train_Name + " </td><td> " + childSnapshot.val().Destination + " </td><td>Every " + childSnapshot.val().Frequency + " minutes</td><td>Arriving Next @ " + localStorage.getItem("next_train") + " </td><td> " + localStorage.getItem("min_away") + " minutes before next departure</td></tr>");
+    $("#userData").append("<tr><td> " + childSnapshot.val().Train_Name + " </td><td> " + childSnapshot.val().Destination + " </td><td>Every " + childSnapshot.val().Frequency + " minutes</td><td>Arriving Next @ " + childSnapshot.val().next_train + " </td><td> " + childSnapshot.val().min_away + " minutes before next departure</td></tr>");
 
 
   }, function(errorObject) {
@@ -93,9 +100,20 @@ $("#addNewTrain").on("click", function(event) {
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
-    localStorage.clear();
-    localStorage.setItem("next_train", moment(nextTrain).format("hh:mm"));
-    localStorage.setItem("min_away", tMinutesTillTrain); 
+    // localStorage.clear();
+    // localStorage.setItem("next_train", moment(nextTrain).format("hh:mm"));
+    // localStorage.setItem("min_away", tMinutesTillTrain);
+    var nt = moment(nextTrain).format("hh:mm")
+
+    database.ref().push({
+       Train_Name: trainName,
+    Destination: dest,
+    Frequency: freq,
+    First_Time: firstTime,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP,
+      next_train: nt,
+      min_away: tMinutesTillTrain
+    });
 }
 
 // To clear the input feilds after submition, called in the click function above
