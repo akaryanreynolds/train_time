@@ -106,14 +106,14 @@ $("#addNewTrain").on("click", function(event) {
     var nt = moment(nextTrain).format("hh:mm")
 
     database.ref().push({
-       Train_Name: trainName,
-    Destination: dest,
-    Frequency: freq,
-    First_Time: firstTime,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP,
-      next_train: nt,
-      min_away: tMinutesTillTrain
-    });
+     Train_Name: trainName,
+     Destination: dest,
+     Frequency: freq,
+     First_Time: firstTime,
+     dateAdded: firebase.database.ServerValue.TIMESTAMP,
+     next_train: nt,
+     min_away: tMinutesTillTrain
+   });
 }
 
 // To clear the input feilds after submition, called in the click function above
