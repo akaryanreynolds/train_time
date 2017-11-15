@@ -20,7 +20,6 @@ var dest = "";
 var firstTime = 0;
 var freq = "";
 
-
 $("#addNewTrain").on("click", function(event) {
   event.preventDefault();
 
@@ -40,6 +39,7 @@ $("#addNewTrain").on("click", function(event) {
 
   database.ref().push(newTrain);
 
+  reset();
 });
 
   database.ref().on("child_added", function(childSnapshot) {
@@ -95,8 +95,15 @@ $("#addNewTrain").on("click", function(event) {
 
     localStorage.clear();
     localStorage.setItem("next_train", moment(nextTrain).format("hh:mm"));
-    localStorage.setItem("min_away", tMinutesTillTrain);
-  
+    localStorage.setItem("min_away", tMinutesTillTrain); 
+}
+
+// To clear the input feilds after submition, called in the click function above
+function reset(){
+  $("#trainName").val("");
+  $("#dest").val("");
+  $("#firstTime").val("");
+  $("#freq").val("");
 }
 
 });
